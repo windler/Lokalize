@@ -155,7 +155,7 @@
                         @endif
 
                     </div>
-                </div>
+                </div> 
 
                 <div class="uk-flex uk-margin-small-top" each="{lang in parent.project.languages}">
                     <div><span class="lang-badge uk-badge uk-badge-outline uk-text-muted uk-margin-right uk-text-truncate" title="{lang}">{parent.languages[lang]}</span></div>
@@ -500,10 +500,9 @@
                 multiline: this.$key.multiline
             };
 
+            
             if (this.$key._ && this.$key._ != this.$key.name) {
-
                 Object.keys(this.project.values || {}).forEach(function(lang){
-
                     if ($this.project.values[lang][$this.$key._]) {
                         $this.project.values[lang][$this.$key.name] = $this.project.values[lang][$this.$key._];
                         delete $this.project.values[lang][$this.$key._];
@@ -515,6 +514,7 @@
 
             this.keys = Object.keys(this.project.keys).sort();
 
+            this.project.values[Object.keys(this.project.values)[0]][this.$key.name] = this.$key.name;
             this.$key = null;
         }
 
