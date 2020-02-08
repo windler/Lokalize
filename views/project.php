@@ -424,7 +424,7 @@
             this.$key = {
                 name: '',
                 info: '',
-                multiline: true
+                multiline: false
             };
 
             setTimeout(function() {
