@@ -72,6 +72,7 @@ $this->module("lokalize")->extend([
     'saveProject' => function($project) {
 
         $this->app->storage->save('lokalize/projects', $project);
+        $this->app->trigger('lokalize.update', [$project]);
 
         return $project;
     },
